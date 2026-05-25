@@ -14,8 +14,8 @@ class UserData(Base):
     first_name = CharField(null=True)
     last_name = CharField(null=True)
     middle_name = CharField(null=True)
-    user_id = ForeignKeyField(User, backref="profile", unique=True, , on_delete="CASCADE")
-    email = CharField(unique=True, )
+    user_id = IntegerField(unique=True)
+    email = CharField(unique=True)
     phone_number = CharField(null=True, unique=True)
     avatar = CharField(null=True)
     notification = BooleanField(default=True)
@@ -23,7 +23,7 @@ class UserData(Base):
 
 def init_db():
     """Подключение БД и создание таблиц"""
-    tables = [User, UserData]
+    tables = [UserData]
     db.connect()
     db.create_tables(tables) 
     db.close()
