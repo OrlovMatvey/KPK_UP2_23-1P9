@@ -9,13 +9,6 @@ class Base(Model):
     class Meta:
         database = db
 
-class User(Base):
-    """Модель таблицы User"""
-    username = CharField(unique=True)
-    password_hash = CharField()
-    is_active = BooleanField(default=True)
-    created_at = DateField()
-
 class UserData(Base):
     """Модель таблицы UserData"""
     first_name = CharField(null=True)
